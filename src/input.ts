@@ -15,6 +15,10 @@ export async function readInput(
 
   const rawText = await Deno.readTextFile(inputPath);
 
+  if (rawText.indexOf("#-------#") < 0) {
+    return { input: rawText };
+  }
+
   const [solution, input] = rawText.split("#-------#").map((s) => s.trim());
 
   return {

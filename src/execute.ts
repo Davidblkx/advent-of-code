@@ -43,7 +43,7 @@ export async function executePuzzle(
   }
 }
 
-async function runSolution(year?: number, day?: number, type?: string) {
+export async function runSolution(year?: number, day?: number, type?: string) {
   const inputData = await readInput(year, day, type);
   const solutionPath = await buildPuzzleSolution(year, day);
 

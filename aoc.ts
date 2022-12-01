@@ -2,6 +2,8 @@ import { Command } from "cliffy/command/mod.ts";
 
 import { createPuzzle } from "./src/create.ts";
 import { executePuzzle } from "./src/execute.ts";
+import { runImport } from "./src/import.ts";
+import { executeYear } from "./src/executeYear.ts";
 
 await new Command()
   .name("aoc")
@@ -30,5 +32,18 @@ await new Command()
   .option("-w, --watch", "Watch for changes and execute")
   .action(async (opt) => {
     await executePuzzle(opt.year, opt.day, opt.type, opt.watch);
+  })
+  .command("import", "Import puzzles from previous years")
+  .alias("i")
+  .option("-s, --start <start:number>", "Year to start importing")
+  .option("-e, --end <end:number>", "Year to end importing")
+  .action(async (opt) => {
+    await runImport(opt.start, opt.end);
+  })
+  .command("year", "Execute all puzzles for a year")
+  .alias("y")
+  .arguments("[year:number]")
+  .action(async (_, year) => {
+    await executeYear(year);
   })
   .parse(Deno.args);
