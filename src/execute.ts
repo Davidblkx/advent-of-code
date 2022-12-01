@@ -57,11 +57,13 @@ async function runSolution(year?: number, day?: number, type?: string) {
     )) as SolutionModule;
 
     const res = await module.main(inputData.input);
-
-    console.log(colors.yellow(res));
+    console.log(colors.green('Solution1:'))
+    console.log(colors.yellow(res[0]));
+    console.log(colors.green('Solution2:'))
+    console.log(colors.yellow(res[1]));
 
     if (inputData.solution) {
-      const success = inputData.solution === res;
+      const success = inputData.solution[0] === res[0] && inputData.solution[1] === res[1];
       const message = success ? colors.green("Success") : colors.red("Failure");
       console.log(message);
     }

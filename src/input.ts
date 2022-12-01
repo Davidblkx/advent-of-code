@@ -1,7 +1,7 @@
 import { buildPuzzleInput } from "./path.ts";
 
 export interface PuzzleInput {
-  solution?: string;
+  solution?: string[];
   input: string;
 }
 
@@ -19,6 +19,6 @@ export async function readInput(
 
   return {
     input,
-    solution: solution === "[RESULT]" ? undefined : solution,
+    solution: solution.startsWith("[RESULT") ? undefined : solution.split("|").map((s) => s.trim()),
   };
 }

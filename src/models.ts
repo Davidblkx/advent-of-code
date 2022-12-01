@@ -3,7 +3,7 @@ export interface PuzzleParams {
   result?: string;
 }
 
-export type Solution = (input: string) => string | Promise<string>;
+export type Solution = (input: string) => [string, string] | Promise<[string, string]>;
 
 export interface SolutionModule {
   main: Solution;
