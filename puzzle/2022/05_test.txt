@@ -1,4 +1,4 @@
-CMN|[RESULT2]
+CMN|MCD
 #-------#
     [D]    
 [N] [C]    

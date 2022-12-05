@@ -19,7 +19,7 @@ export async function readInput(
     return { input: rawText };
   }
 
-  const [solution, input] = rawText.split("#-------#").map((s) => s.trim());
+  const [solution, input] = rawText.split("#-------#");
 
   return {
     input,
