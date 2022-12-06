@@ -22,7 +22,7 @@ export async function readInput(
   const [solution, input] = rawText.split("#-------#");
 
   return {
-    input,
+    input: input.substring(1),
     solution: solution.startsWith("[RESULT") ? undefined : solution.split("|").map((s) => s.trim()),
   };
 }
